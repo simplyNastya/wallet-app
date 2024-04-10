@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { currencyFetch } from '../../shared/api/fetchСurrency';
+import { currencyFetch } from 'shared/Api/fetchСurrency';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import { Circles } from 'react-loader-spinner';
 import { nanoid } from '@reduxjs/toolkit';
