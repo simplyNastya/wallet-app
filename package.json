@@ -2,7 +2,7 @@
   "name": "wallet-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://simplynastya.github.io/wallet-app/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
