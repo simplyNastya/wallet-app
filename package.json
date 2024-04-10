@@ -2,7 +2,7 @@
   "name": "wallet-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://wallet-app-zu53.onrender.com",
+  "homepage": "https://wallet-app-zu53.onrender.com/",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
