@@ -1,0 +1,139 @@
+.btnRegister,
+.btnLogin {
+    font-family: 'Circe';
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    width: 280px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    letter-spacing: 0.1em;
+    transition: color 300ms ease-in-out;
+}
+
+.btnRegister {
+    margin: 20px 10px;
+    color: white;
+    border: 1px solid #4a9bbb;
+}
+
+.btnLogin {
+    border: 1px solid #4a9bbb;
+    // color: #4a56e2;
+    margin-bottom: 6px;
+    @media screen and (min-width: 768px) {
+    margin-bottom: 36px;
+    }
+}
+// ?????
+
+
+
+
+// ??????
+.btnLogin {
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    z-index: 1;
+    color: #000;
+    border-radius: 20px;
+}
+
+.btnLogin::after {
+    content: "";
+    height: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: blue;
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+    opacity: 100%;
+}
+
+.btnLogin::before {
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+    opacity: 100%;
+}
+
+.btnLogin:hover::before,
+.btnLogin:active::before,
+.btnLogin:hover::after,
+.btnLogin:active::after{
+height: 50%;
+}
+// ????
+.btnRegister {
+    position: relative;
+    overflow: hidden;
+    font-size: 18px;
+    z-index: 1;
+    color: #000;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.btnRegister::after {
+    content: "";
+    height: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+z-index: -1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease-in-out;
+
+    opacity: 100%;
+}
+
+.btnRegister::before {
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 0;
+    width: 100%;
+    position: absolute;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 300ms ease-in-out;
+    z-index: -1;
+    opacity: 100%;
+}
+
+
+.btnRegister:hover::before,
+.btnRegister:active::before,
+.btnRegister:hover::after,
+.btnRegister:active::after {
+    height: 50%;
+}
+
+.btnRegister:hover,
+.btnRegister:active,
+.btnRegister:hover,
+.btnRegister:active {
+color: white;
+}

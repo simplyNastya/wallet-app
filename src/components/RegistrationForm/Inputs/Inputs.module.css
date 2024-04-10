@@ -1,0 +1,75 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+}
+.inputContainer input {
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  padding-left: 30px;
+}
+.inputContainer .label {
+  font-family: "Circe";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  color: #ccc;
+  pointer-events: none;
+}
+
+.inputContainer input {
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  padding-left: 30px;
+}
+
+.inputContainer .label {
+  font-family: "Circe";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  color: #ccc;
+  transition: top 0.3s ease;
+  pointer-events: none;
+}
+
+.inputContainer input:focus ~ .label,
+.inputContainer input:valid ~ .label {
+  top: -15px;
+  font-size: 16px;
+  color: #24cca7;
+}
+
+.inputContainer .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #24cca7;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.inputContainer input:focus ~ .underline,
+.inputContainer input:valid ~ .underline {
+  transform: scaleX(1);
+}/*# sourceMappingURL=Inputs.module.css.map */

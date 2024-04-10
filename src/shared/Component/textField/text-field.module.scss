@@ -1,0 +1,92 @@
+.inputContainer {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+
+  & input {
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+    padding-left: 30px;
+  }
+  & input:-webkit-autofill,
+  &input:-webkit-autofill:hover,
+  & input:-webkit-autofill:focus,
+  & input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px #ffffff inset !important;
+  }
+
+  & .label {
+    font-family: 'Circe';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    color: #ccc;
+    pointer-events: none;
+  }
+
+}
+
+.inputContainer input {
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  padding-left: 30px;
+}
+
+.inputContainer .label {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  position: absolute;
+  top: 0;
+  left: 30px;
+  color: #ccc;
+  transition: top 0.3s ease;
+  transition: font-size 0.3s ease, top 0.3s ease;
+  pointer-events: none;
+}
+input::-moz-focus-inner {
+  background-color: red;
+}
+.inputContainer input:focus ~ .label,
+.inputContainer input:valid ~ .label {
+  top: -17px;
+  font-size: 14px;
+  color: #24cca7;
+}
+
+.inputContainer .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #24cca7;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.inputContainer input:focus ~ .underline,
+.inputContainer input:valid ~ .underline {
+  transform: scaleX(1);
+}
+.inputContainer input:-webkit-autofill {
+  -webkit-box-shadow: transparent;
+  background-color: transparent;
+}
+

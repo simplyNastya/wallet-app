@@ -1,0 +1,121 @@
+.section {
+  // position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding-top: 32px;
+  padding-bottom: 36px;
+  
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  
+  @media screen and (min-width: 768px) {
+    height: 100%;
+    
+    padding-top: 60px;
+    padding-bottom: 48px;
+    
+    background-color: var(--bcg-main-color);
+    background-image: url('../../assets/images/tablet-bcg-img.png');
+  }
+  
+  @media screen and (min-width: 1280px) {
+    height: 100vh;
+
+    padding-top: 52px;
+    padding-bottom: 52px;
+
+    background-image: url('../../assets/images/comp-bcg-img.png');
+  }
+}
+
+.commonWrapper {
+  transition: 1.5s;
+  animation: left 1s 1;
+  animation-fill-mode: forwards;
+
+  @keyframes left {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.bigGroupWrapper {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-right: 138px;
+  }
+}
+
+.wrapper {
+  @media screen and (max-width: 1279px) {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    width: 533px;
+    
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.img {
+  width: 274px;
+  height: 250px;
+
+  @media screen and (min-width: 1280px) {
+      width: 452px;
+      height: 413px;
+      margin-bottom: 32px;
+    }
+}
+
+.title {
+  font-family: 'Poppins';
+  font-weight: 400;
+  font-size: 30px;
+  line-height: calc(45 / 30);
+
+  @media screen and (min-width: 1280px) {
+    text-align: center;
+  }
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  padding: 30px 0;
+  @media screen and (min-width: 768px) {
+    width: 533px;
+
+    border-radius: 20px;
+  }
+}

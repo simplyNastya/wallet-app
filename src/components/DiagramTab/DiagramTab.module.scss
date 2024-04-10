@@ -1,0 +1,94 @@
+.section {
+  @media screen and (min-width: 320px) {
+    width: 100%;
+    display: flex;
+    height: 100%;
+  }
+
+  @media screen and (min-width:768px) {
+    display: flex;
+  }
+
+  @media screen and (min-width:1280px) {
+    // width: 715px;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-left: 16px;
+  }
+}
+.title {
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.5;
+  align-items: start;
+  margin-bottom: 8px;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 32px;
+    
+  }
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 32px;
+    margin-bottom: 0px;
+    color: var(--black-color);
+    display: block;
+  }
+}
+.wrapper {
+  width: 100%; 
+  @media screen and (min-width:767px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  // @media screen and (min-width:1280px) {
+  //   margin-top: 32px;
+  // }
+}
+
+.noTransactions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.noTransactions h2 {
+  text-align: center;
+}
+Підставка
+svg.react__icon g:nth-child(1) {
+  fill: var(--black-color);
+}
+// Стріла
+svg.react__icon g:last-child {
+  fill: var(--accent-blue);
+  transition: all 250ms linear;
+}
+svg.react__icon:hover g:last-child {
+  fill: #6e78e8;
+}
+svg.react__icon:focus g:last-child {
+  fill: #6e78e8;
+}
+svg.react__icon {
+  animation: animate125 3000ms 1 500ms;
+  margin-top: 20px;
+}
+@keyframes animate125 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
