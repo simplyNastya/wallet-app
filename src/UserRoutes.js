@@ -19,13 +19,13 @@ const UserRoutes = () => {
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<DashboardPage />} />
-          <Route path="diagram" element={<SummaryPage />} />
-          <Route path="currency" element={<CurrencyPage />} />
+          <Route path="/diagram" element={<SummaryPage />} />
+          <Route path="/currency" element={<CurrencyPage />} />
         </Route>
 
         <Route element={<PublicRoute />}>
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegistrationPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
         </Route>
         <Route path="*" element={NotFoundPage} />
       </Routes>
