@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://wallet.goit.ua',
+  baseURL: 'https://wallet.b.goit.study/',
 });
 
 const setToken = token => {
