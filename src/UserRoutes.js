@@ -5,7 +5,6 @@ import { PublicRoute } from 'components/PublicRoute/PublicRoute';
 import { PrivateRoute } from 'components/PrivateRoute/PrivateRoute';
 import DashboardPage from './pages/DashboardPage/DashboardPage';
 import CurrencyPage from './pages/CurrencyPage/CurrencyPage';
-// import LoginPage from 'pages/LoginPage/LoginPage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Loader from './components/Loader/Loader';

@@ -30,7 +30,7 @@ const validationSchema = Yup.object().shape({
        /^(?:\d*\.)?\d+$/,'Only positive amount')
      .required('Enter the amount, only numbers and comas'),
   comment: Yup.string()
-     .max(15, 'No more than 15 characters')
+     .max(30, 'No more than 30 characters')
   .matches(/^[a-zA-Z\s]+$/, 'Only letters are allowed'),
   categoryId: Yup.string('Choose a category')
      .required('Category is required'),

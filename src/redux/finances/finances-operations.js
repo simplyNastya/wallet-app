@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
 
-import * as api from '../../shared/Api/auth'
-// import * as api from '../../shared/api/auth';
+import * as api from '../../shared/api/auth'
 
 
 export const allTransactions = createAsyncThunk(

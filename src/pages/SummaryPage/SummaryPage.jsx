@@ -21,7 +21,7 @@ const SummaryPage = () => {
             <div className={css.wrapper}>
               <div>
                 <Navigation />
-                {window.innerWidth > 767 ? <Balance /> : null }
+                {window.innerWidth > 767 ? <Balance /> : null}
               </div>
 
               <div className={css.val}>
@@ -29,7 +29,6 @@ const SummaryPage = () => {
               </div>
             </div>
             <DiagramTab />
-            {/* <ButtonAddTransactions/> */}
           </div>
         </div>
         {showModal && <ModalAddTransaction />}
@@ -37,4 +36,4 @@ const SummaryPage = () => {
     </>
   );
 };
-export default SummaryPage
+export default SummaryPage;

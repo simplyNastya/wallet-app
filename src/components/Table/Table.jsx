@@ -24,7 +24,6 @@ const Table = ({
 
 
   const { arrayCategoriesSummary, newExpenseSummary, newIncomeSummary } = data;
-  // console.log('object :>> ', data);
 
   const periodForSelects = useSelector(financesSelector.getPeriodForStatistic);
 

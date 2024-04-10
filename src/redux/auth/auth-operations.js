@@ -1,8 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import * as api from '../../shared/Api/auth';
-// import * as api from '../../shared/api/auth';
-
+import * as api from '../../shared/api/auth';
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -63,16 +61,4 @@ export const current = createAsyncThunk(
     },
   }
 );
-// export const  = createAsyncThunk(
-//   'auth/logout',
-//   async (period = '', { rejectWithValue }) => {
-//     try {
-//       const result = await api.summary(period);
-//       return result;
-//     } catch ({ response }) {
-//       return rejectWithValue(response.data);
-//     }
-//   }
-// );
-
 
