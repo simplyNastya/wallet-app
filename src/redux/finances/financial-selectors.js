@@ -96,7 +96,7 @@ const getPeriodForStatistic = state => {
         labels: [],
         datasets: [
           {
-            label: '# of Votes',
+            label: 'Spent money',
             data: [],
             backgroundColor: [],
             hoverOffset: 0,

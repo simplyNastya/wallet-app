@@ -54,7 +54,7 @@ export const EditModal = ({ editItem }) => {
 
   const onEditTransactions = () => {
     dispatch(editTransaction(id));
-    dispatch(toggleEditModal())
+    dispatch(toggleEditModal());
   };
 
   return (
@@ -70,14 +70,14 @@ export const EditModal = ({ editItem }) => {
         <Formik
           initialValues={{
             type: type,
-            amount:  editItem.amount,
+            amount: editItem.amount,
             comment: editItem.comment,
-            categoryId:  editItem.categoryId,
+            categoryId: editItem.categoryId,
             transactionDate: startDate,
           }}
           enableReinitialize
           validateOnBlur
-          onSubmit={(values) => dispatch(editTransaction(values.editItem.id)) }
+          onSubmit={values => dispatch(editTransaction(values.editItem.id))}
         >
           {({
             errors,
@@ -185,7 +185,7 @@ export const EditModal = ({ editItem }) => {
                   type="button"
                   onClick={isCloseModal}
                 >
-                  CANEL
+                  CANCEL
                 </button>
               </div>
             </Form>
