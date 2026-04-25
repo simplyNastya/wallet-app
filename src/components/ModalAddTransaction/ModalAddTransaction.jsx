@@ -1,81 +1,94 @@
-import { useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Datetime from "react-datetime";
+import { useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Datetime from 'react-datetime';
 
-import ModalSelect from "../ModalSelect/ModalSelect";
-import {Modal} from "components/Modal/Modal";
+import ModalSelect from '../ModalSelect/ModalSelect';
+import { Modal } from 'components/Modal/Modal';
 
-import { toggleModalAddTransaction } from "redux/modal/modalSlice";
-import financeSelectors from "redux/finances/financial-selectors";
+import { toggleModalAddTransaction } from 'redux/modal/modalSlice';
+import financeSelectors from 'redux/finances/financial-selectors';
 import { addTransaction } from 'redux/finances/finances-operations';
 
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { IconContext } from "react-icons";
-import { GrClose } from "react-icons/gr";
-import { MdDateRange } from "react-icons/md";
-import moment from "moment";
-import * as Yup from 'yup'; 
-import { toast } from "react-toastify";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { IconContext } from 'react-icons';
+import { GrClose } from 'react-icons/gr';
+import { MdDateRange } from 'react-icons/md';
+import moment from 'moment';
+import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 
-import "react-datetime/css/react-datetime.css";
-import styled from "./ModalAddTransaction.module.scss";
+import 'react-datetime/css/react-datetime.css';
+import styled from './ModalAddTransaction.module.scss';
 
 const validationSchema = Yup.object().shape({
-  type: Yup.string()
-     .required('Type Qis required'),
+  type: Yup.string().required('Type Qis required'),
   amount: Yup.string('Enter your money')
-     .min(0)
-     .max(10, 'Very large amount, no more than 10 characters')
-     .matches(
-       /^(?:\d*\.)?\d+$/,'Only positive amount')
-     .required('Enter the amount, only numbers and comas'),
+    .min(0)
+    .max(10, 'Very large amount, no more than 10 characters')
+    .matches(/^(?:\d*\.)?\d+$/, 'Only positive amount')
+    .required('Enter the amount, only numbers and comas'),
   comment: Yup.string()
-     .max(30, 'No more than 30 characters')
-  .matches(/^[a-zA-Z\s]+$/, 'Only letters are allowed'),
-  categoryId: Yup.string('Choose a category')
-     .required('Category is required'),
-  transactionDate: Yup.date()
-  .required('Date is required'),
+    .max(30, 'No more than 30 characters')
+    .matches(/^[a-zA-Z\s]+$/, 'Only letters are allowed'),
+  categoryId: Yup.string('Choose a category').required('Category is required'),
+  transactionDate: Yup.date().required('Date is required'),
 });
 
-
-const handleAmount = (value) => {
+const handleAmount = value => {
   if (!value || Number.isNaN(Number(value))) return value;
   const length = value.length;
-  const dot = value.indexOf(".");
+  const dot = value.indexOf('.');
   if (dot < 0) {
-    return value.concat(".00");
+    return value.concat('.00');
   }
   if (dot < length - 3) {
     return value.slice(0, dot + 3);
   }
 
   if (dot > length - 3) {
-    return value.padEnd(dot + 3, "0");
+    return value.padEnd(dot + 3, '0');
   }
   return value;
 };
 const valid = function (current) {
-  const tommorow = moment().subtract(0, "day");
+  const tommorow = moment().subtract(0, 'day');
   return current.isBefore(tommorow);
 };
+
+const CATEGORY_MAP = {
+  'Main expenses': 'Living Costs',
+  Products: 'Groceries',
+  Car: 'Transport',
+  'Self care': 'Health & Beauty',
+  'Child care': 'Family',
+  'Household products': 'Home',
+  Education: 'Learning',
+  Leisure: 'Fun',
+  'Other expenses': 'Other',
+};
+
 const ModalAddTransaction = () => {
   const dispatch = useDispatch();
 
   const categories = useSelector(financeSelectors.getCategories);
 
+  const mappedCategories = categories?.map(category => ({
+    ...category,
+    name: CATEGORY_MAP[category.name] || category.name,
+  }));
+
   const [chooseType, setChooseType] = useState(false);
-  const [type, setType] = useState("EXPENSE");
+  const [type, setType] = useState('EXPENSE');
 
   const startDate = new Date();
-  const toastId = useRef("enterAmount");
+  const toastId = useRef('enterAmount');
 
-  const expenseCategories = categories?.filter(
-    (category) => category.type === "EXPENSE"
+  const expenseCategories = mappedCategories?.filter(
+    category => category.type === 'EXPENSE'
   );
 
   const incomeCategory = categories?.find(
-    (category) => category.type === "INCOME"
+    category => category.type === 'INCOME'
   );
 
   const isCloseModal = () => {
@@ -84,10 +97,10 @@ const ModalAddTransaction = () => {
 
   const handleChangeType = () => {
     setChooseType(!chooseType);
-    setType(chooseType ? "EXPENSE" : "INCOME");
+    setType(chooseType ? 'EXPENSE' : 'INCOME');
   };
 
-  const enterByFocus = (e) => {
+  const enterByFocus = e => {
     if (e.keyCode === 13) {
       handleChangeType();
     }
@@ -100,11 +113,11 @@ const ModalAddTransaction = () => {
     categoryId,
     transactionDate,
   }) => {
-    const normalizedAmount = type === "EXPENSE" ? -amount : amount;
+    const normalizedAmount = type === 'EXPENSE' ? -amount : amount;
 
-    if (amount === "0") {
+    if (amount === '0') {
       if (!toast.isActive(toastId.current)) {
-        toastId.current = toast.error("Enter amount!");
+        toastId.current = toast.error('Enter amount!');
       }
       return;
     }
@@ -126,7 +139,7 @@ const ModalAddTransaction = () => {
       <div className={styled.transaction}>
         <button onClick={isCloseModal} className={styled.buttonClose}>
           <IconContext.Provider
-            value={{ className: "global-class-name", size: "16px" }}
+            value={{ className: 'global-class-name', size: '16px' }}
           >
             <GrClose />
           </IconContext.Provider>
@@ -134,9 +147,9 @@ const ModalAddTransaction = () => {
         <Formik
           initialValues={{
             type: type,
-            amount: "",
-            comment: "",
-            categoryId: "",
+            amount: '',
+            comment: '',
+            categoryId: '',
             transactionDate: startDate,
           }}
           validationSchema={validationSchema}
@@ -198,10 +211,12 @@ const ModalAddTransaction = () => {
                 <div className={styled.category}>
                   <ModalSelect
                     options={expenseCategories}
-                    onClick={(setId) => setFieldValue("categoryId", setId)}
+                    onClick={setId => setFieldValue('categoryId', setId)}
                   />
                   {errors.categoryId && touched.categoryId && (
-                    <div className={styled.categoryError}>{errors.categoryId}</div>
+                    <div className={styled.categoryError}>
+                      {errors.categoryId}
+                    </div>
                   )}
                 </div>
               )}
@@ -213,9 +228,9 @@ const ModalAddTransaction = () => {
                     type="number"
                     placeholder="0.00"
                     className={styled.money}
-                    onBlur={(e) => {
+                    onBlur={e => {
                       const { value } = e.target;
-                      setFieldValue("amount", handleAmount(value));
+                      setFieldValue('amount', handleAmount(value));
                       handleBlur(e);
                     }}
                   />
@@ -227,8 +242,8 @@ const ModalAddTransaction = () => {
                   <Datetime
                     className={styled.date}
                     initialValue={startDate}
-                    onChange={(value) =>
-                      setFieldValue("transactionDate", value.toISOString())
+                    onChange={value =>
+                      setFieldValue('transactionDate', value.toISOString())
                     }
                     closeOnSelect={true}
                     timeFormat={false}

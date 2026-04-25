@@ -9,6 +9,18 @@ import financeSelectors from 'redux/finances/financial-selectors';
 import styles from '../TransactionsList/TransactionsList.module.scss';
 import loginImg from '../../assets/images/login-img.png';
 
+const CATEGORY_MAP = {
+  'Main expenses': 'Living Costs',
+  Products: 'Groceries',
+  Car: 'Transport',
+  'Self care': 'Health & Beauty',
+  'Child care': 'Family',
+  'Household products': 'Home',
+  Education: 'Learning',
+  Leisure: 'Fun',
+  'Other expenses': 'Other',
+};
+
 export const TransactionsList = () => {
   const dispatch = useDispatch();
   const items = useSelector(financeSelectors.getFilteredData);
@@ -34,7 +46,9 @@ export const TransactionsList = () => {
         <tr key={id} className={styles.tableRow}>
           <td className={styles.tableData}>{transactionDate}</td>
           <td className={styles.tableData}>{type !== 'EXPENSE' ? '+' : '-'}</td>
-          <td className={styles.tableData}>{category}</td>
+          <td className={styles.tableData}>
+            {CATEGORY_MAP[category] || category}
+          </td>
           <td className={styles.tableData}>{comment}</td>
           <td
             className={
@@ -85,7 +99,7 @@ export const TransactionsList = () => {
             <li className={styles.mobailTrItem__row}>
               <span className={styles.mobailTrItem__cell}>Category</span>
               <span className={styles.mobailTrItem__cell_value}>
-                {category}
+                {CATEGORY_MAP[category] || category}
               </span>
             </li>
             <li className={styles.mobailTrItem__row}>
