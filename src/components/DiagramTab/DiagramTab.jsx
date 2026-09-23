@@ -52,13 +52,10 @@ const DiagramTab = () => {
 
   const showChart = dataAllSummaryForChart?.datasets[0]?.data?.length ?? true;
 
-
-
-
   return (
     <>
       <section className={scss.section}>
-      <h2 className={scss.title}>Statistics</h2>
+        <h2 className={scss.title}>Statistics</h2>
         <div className={scss.wrapper}>
           <Chart
             data={dataAllSummaryForChart}

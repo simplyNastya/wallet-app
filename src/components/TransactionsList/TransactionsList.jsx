@@ -10,15 +10,15 @@ import styles from '../TransactionsList/TransactionsList.module.scss';
 import loginImg from '../../assets/images/login-img.png';
 
 const CATEGORY_MAP = {
-  'Main expenses': 'Living Costs',
+  'Main expenses': 'Main expenses',
   Products: 'Groceries',
   Car: 'Transport',
   'Self care': 'Health & Beauty',
-  'Child care': 'Family',
-  'Household products': 'Home',
-  Education: 'Learning',
-  Leisure: 'Fun',
-  'Other expenses': 'Other',
+  'Child care': 'Savings',
+  'Household products': 'Household products',
+  Education: 'Education & Sport',
+  Leisure: 'Entertainment',
+  'Other expenses': 'Other expenses',
 };
 
 export const TransactionsList = () => {

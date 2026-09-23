@@ -17,7 +17,19 @@ const getFilteredData = state => {
     ...data,
     transactionDate: new Date(data.transactionDate),
   }))
-  .sort((a, b) => b.transactionDate - a.transactionDate);
+    .sort((a, b) => b.transactionDate - a.transactionDate);
+  
+    const CATEGORY_MAP = {
+    'Main expenses': 'Main expenses',
+    Products: 'Groceries',
+    Car: 'Transport',
+    'Self care': 'Health & Beauty',
+    'Child care': 'Savings',
+    'Household products': 'Household products',
+    Education: 'Education & Sport',
+    Leisure: 'Entertainment',
+    'Other expenses': 'Other expenses',
+  };
 
   const categories = getCategories(state)?.reduce((acc, cur) => {
     return { ...acc, [cur.id]: cur.name };
